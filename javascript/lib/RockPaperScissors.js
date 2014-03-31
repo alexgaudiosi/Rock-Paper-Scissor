@@ -12,29 +12,44 @@ function Game(player1, player2) {
 }
 
 Game.prototype.PAIRS = solution = {
-	rock: ['scissors', 'lizard'],
-	paper: ['rock', 'Spock'],
-	scissors: ['paper', 'lizard'],
-	Spock: ['rock', 'scissors'],
-	lizard: ['paper', 'Spock']
+	rock: {'scissors': 'cuts up', 'lizard': 'stomps'},
+	paper: 
+	{
+		'rock': 'covers', 
+		'Spock': 'blinds'
+	},
+	scissors: {'paper': 'slices', 'lizard': 'chops up'},
+	Spock: {'rock': 'breaks', 'scissors': 'punches'},
+	lizard: {'paper': 'pees on', 'Spock': 'eats'}
 
 }
 
 Game.prototype.winner = function() {
-	if(this.player1.pick === this.player2.pick) {
+	if(this.isSamePick()) {
 		return null;
 	}
 
-		if(solution[this.player1.pick].indexOf(this.player2.pick) != -1) {
+		if(solution[this.player1.pick].hasOwnProperty(this.player2.pick)) {
+			this.win = this.player1
+			this.lose = this.player2
 			return this.player1;
 		}
-		else if(solution[this.player2.pick].indexOf(this.player1.pick) != -1){
+		else if(solution[this.player2.pick].hasOwnProperty(this.player1.pick)){
+			this.win = this.player2
+			this.lose = this.player1
 			return this.player2;
 		}
-};
+}
+
+
 
 Game.prototype.isSamePick = function() {
-	return this.player1.pick === this.player2.pick;
+ alert("Draw!"); 
+ return this.player1.pick === this.player2.pick;
+}
+
+Game.prototype.message = function() {
+	return (this.win.pick + " " + this.PAIRS[this.win.pick][this.lose.pick] + " " + this.lose.pick);
 }
 
 // {
