@@ -13,11 +13,7 @@ function Game(player1, player2) {
 
 Game.prototype.PAIRS = solution = {
 	rock: {'scissors': 'cuts up', 'lizard': 'stomps'},
-	paper: 
-	{
-		'rock': 'covers', 
-		'Spock': 'blinds'
-	},
+	paper: {'rock': 'covers', 'Spock': 'blinds'},
 	scissors: {'paper': 'slices', 'lizard': 'chops up'},
 	Spock: {'rock': 'breaks', 'scissors': 'punches'},
 	lizard: {'paper': 'pees on', 'Spock': 'eats'}
