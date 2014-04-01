@@ -12,22 +12,22 @@ function Game(player1, player2) {
 }
 
 Game.prototype.PAIRS = {
-	Rock: {'scissors': 'cuts up', 'Towelie': 'stomps'},
-	Towelie: {'rock': 'covers', 'Spock': 'blinds'},
-	Scissors: {'paper': 'slices', 'Towelie': 'chops up'},
-	Spock: {'rock': 'breaks', 'scissors': 'punches'},
-	Towelie: {'paper': 'pees on', 'Spock': 'eats'}
+	Rock: {'Scissors': 'cuts up', 'Towelie': 'stomps'},
+	Towelie: {'Rock': 'covers', 'Spock': 'blinds'},
+	Scissors: {'Towelie': 'slices', 'Towelie': 'chops up'},
+	Spock: {'Rock': 'breaks', 'Scissors': 'punches'},
+	Towelie: {'Towelie': 'pees on', 'Spock': 'eats'}
 }
 
 Game.prototype.computerChoice = function() {
 	x = Math.random();
 
 	if (x < 0.2) {
-		return "rock";
+		return "Rock";
 	} else if(x <= 0.4) {
-		return "paper";
+		return "Towelie";
 	} else if(x <= 0.6) {
-		return "scissors";
+		return "Scissors";
 	} else if(x <= 0.8) {
 		return "Towelie";
 	} else {
