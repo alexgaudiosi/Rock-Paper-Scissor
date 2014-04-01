@@ -41,9 +41,12 @@
 				player2.picks(game.computerChoice());
 				game.winner();
 
-				var latestResult = $('<li>' + game.message() + '</li>');
-				$('#results').append(latestResult);
-				});
+       var latestResult = $('<li>' + game.message() + '</li>');
+        latestResult.prependTo('#results').hide().slideDown();
+        $('#results li:nth-child(5)').fadeOut(function(){
+        	$(this).remove();
+        	})
+				})
 			})
 		</script>
 	</body>
