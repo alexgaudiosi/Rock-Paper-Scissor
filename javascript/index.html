@@ -1,0 +1,51 @@
+<!doctype>
+<html>
+	<head>
+		<title>Rock Paper Scissors Lizard Spock</title>
+		<link rel="stylesheet" type="text/css" href="css/application.css">
+
+		<script language="javascript" type="text/javascript">
+function playSound(soundfile) {
+  document.getElementById("dummy").innerHTML=
+    "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+}
+</script>
+	</head>
+
+	<body>
+
+		<h1>Rock, Paper, Scissors, Lizard, Spock</h1>
+		<span id="dummy"></span>
+		<div id='pictures'>
+		<div class='choices'>
+			<img onmouseover="playSound('audio/smell_whats_cooking.mp3');" width="200px" src='images/rock.jpg' data-pick="rock">
+			<img onmouseover="playSound('audio/inceptionbutton.mp3');" src='images/paper.png' data-pick="paper">
+			<img onmouseover="playSound('audio/sax.mp3');" src='images/scissors.jpg' data-pick="scissors">
+			<img onmouseover="playSound('audio/i-like-turtles.mp3');" src='images/lizard.jpg' data-pick="lizard">
+			<img onmouseover="playSound('audio/Spock_Illogical.mp3');" src='images/spock.jpeg' data-pick="Spock">
+		</div>
+		</div>
+<!-- 
+		<p onmouseover="playSound('audio/smell_whats_cooking.mp3');">hey hey hey</p>
+ -->
+		<ul id="results"></ul>
+
+		<script src='lib/Game.js'></script>
+		<script src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
+		<script>
+			$(document).ready(function(){
+				var p1 = new Player('Human');
+				var p2 = new Player('Computer');
+				var game = new Game(p1, p2);
+
+			$('.choices img').on('click', function(){
+				p1.picks($(this).data('pick'));
+				p2.picks('spock');
+
+				var latestResult = $('<li>' + game.winningMessage() + '</li>');
+				$('#results').append(latestResult);
+				});
+			})
+		</script>
+	</body>
+</html>

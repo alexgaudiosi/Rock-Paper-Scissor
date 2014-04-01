@@ -1,0 +1,44 @@
+.choices img {
+	width: 200px;
+	opacity: 0.5;
+	cursor: pointer;
+	transition: 1s all ease;
+}
+
+.choices img:hover {
+	opacity: 1;
+}
+
+#pictures {
+	left: 50%;
+	top: 50%;
+	margin-top: 150px;
+	margin-left: 15%;
+}
+
+
+body {
+	background-color: black;
+	font-family: 'geometria_lightlight'; 
+}
+
+h1 {
+	color: white;
+	text-align: center;
+}
+
+p {
+	color: white;
+}
+
+@font-face {
+    font-family: 'geometria_lightlight';
+    src: url('../fonts/Geometria-Light-webfont.eot');
+    src: url('../fonts/Geometria-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Geometria-Light-webfont.woff') format('woff'),
+         url('../fonts/Geometria-Light-webfont.ttf') format('truetype'),
+         url('../fonts/Geometria-Light-webfont.svg#geometria_lightlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
