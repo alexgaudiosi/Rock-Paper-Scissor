@@ -12,11 +12,11 @@ function Game(player1, player2) {
 }
 
 Game.prototype.PAIRS = {
-	rock: {'scissors': 'cuts up', 'turtle': 'stomps'},
-	paper: {'rock': 'covers', 'Spock': 'blinds'},
-	scissors: {'paper': 'slices', 'turtle': 'chops up'},
+	Rock: {'scissors': 'cuts up', 'Towelie': 'stomps'},
+	Towelie: {'rock': 'covers', 'Spock': 'blinds'},
+	Scissors: {'paper': 'slices', 'Towelie': 'chops up'},
 	Spock: {'rock': 'breaks', 'scissors': 'punches'},
-	turtle: {'paper': 'pees on', 'Spock': 'eats'}
+	Towelie: {'paper': 'pees on', 'Spock': 'eats'}
 }
 
 Game.prototype.computerChoice = function() {
@@ -29,7 +29,7 @@ Game.prototype.computerChoice = function() {
 	} else if(x <= 0.6) {
 		return "scissors";
 	} else if(x <= 0.8) {
-		return "turtle";
+		return "Towelie";
 	} else {
 		return "Spock";
 	}
