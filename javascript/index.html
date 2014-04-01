@@ -18,7 +18,7 @@
 			<span id="dummy"></span>
 				<div id='pictures'>
 					<div class='choices'>
-						<img onmouseover="playSound('audio/	smell_whats_cooking.mp3');" width="200px" src='images/rock.jpg' data-pick="rock">
+						<img onmouseover="playSound('audio/	smell_whats_cooking.mp3');" src='images/rock.jpg' data-pick="rock">
 						<img onmouseover="playSound('audio/inceptionbutton.mp3');" src='images/paper.png' data-pick="paper">
 						<img onmouseover="playSound('audio/sax.mp3');" src='images/scissors.jpg' data-pick="scissors">
 						<img onmouseover="playSound('audio/i-like-turtles.mp3');" src='images/lizard.jpg' data-pick="lizard">
@@ -32,13 +32,14 @@
 		<script src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
 		<script>
 			$(document).ready(function(){
-				var p1 = new Player('Human');
-				var p2 = new Player('Computer');
-				var game = new Game(p1, p2);
+				var player1 = new Player('Human');
+				var player2 = new Player('Computer');
+				var game = new Game(player1, player2);
 
 			$('.choices img').on('click', function(){
-				p1.picks($(this).data('pick'));
-				p2.picks('spock');
+				player1.picks($(this).data('pick'));
+				player2.picks('spock');
+				game.winner();
 
 				var latestResult = $('<li>' + game.message() + '</li>');
 				$('#results').append(latestResult);
