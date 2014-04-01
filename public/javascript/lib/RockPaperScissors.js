@@ -12,11 +12,11 @@ function Game(player1, player2) {
 }
 
 Game.prototype.PAIRS = {
-	Rock: {'Scissors': 'cuts up', 'Towelie': 'stomps'},
+	Rock: {'Scissors': 'cuts up', 'Turtle': 'stomps'},
 	Towelie: {'Rock': 'covers', 'Spock': 'blinds'},
-	Scissors: {'Towelie': 'slices', 'Towelie': 'chops up'},
+	Scissors: {'Towelie': 'slices', 'Turtle': 'chops up'},
 	Spock: {'Rock': 'breaks', 'Scissors': 'punches'},
-	Towelie: {'Towelie': 'pees on', 'Spock': 'eats'}
+	Turtle: {'Towelie': 'pees on', 'Spock': 'eats'}
 }
 
 Game.prototype.computerChoice = function() {
