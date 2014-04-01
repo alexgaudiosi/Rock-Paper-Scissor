@@ -21,7 +21,7 @@
 						<img onmouseover="playSound('audio/	smell_whats_cooking.mp3');" src='images/rock.jpg' data-pick="rock">
 						<img onmouseover="playSound('audio/inceptionbutton.mp3');" src='images/paper.png' data-pick="paper">
 						<img onmouseover="playSound('audio/sax.mp3');" src='images/scissors.jpg' data-pick="scissors">
-						<img onmouseover="playSound('audio/i-like-turtles.mp3');" src='images/lizard.jpg' data-pick="lizard">
+						<img onmouseover="playSound('audio/i-like-turtles.mp3');" src='images/lizard.jpg' data-pick="turtle">
 						<img onmouseover="playSound('audio/Spock_Illogical.mp3');" src='images/spock.jpeg' data-pick="Spock">
 					</div>
 				</div>
@@ -38,7 +38,7 @@
 
 			$('.choices img').on('click', function(){
 				player1.picks($(this).data('pick'));
-				player2.picks('spock');
+				player2.picks(game.computerChoice());
 				game.winner();
 
 				var latestResult = $('<li>' + game.message() + '</li>');

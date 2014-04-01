@@ -11,13 +11,28 @@ function Game(player1, player2) {
   this.player2 = player2;
 }
 
-Game.prototype.PAIRS = solution = {
-	rock: {'scissors': 'cuts up', 'lizard': 'stomps'},
+Game.prototype.PAIRS = {
+	rock: {'scissors': 'cuts up', 'turtle': 'stomps'},
 	paper: {'rock': 'covers', 'Spock': 'blinds'},
-	scissors: {'paper': 'slices', 'lizard': 'chops up'},
+	scissors: {'paper': 'slices', 'turtle': 'chops up'},
 	Spock: {'rock': 'breaks', 'scissors': 'punches'},
-	lizard: {'paper': 'pees on', 'Spock': 'eats'}
+	turtle: {'paper': 'pees on', 'Spock': 'eats'}
+}
 
+Game.prototype.computerChoice = function() {
+	x = Math.random();
+
+	if (x < 0.2) {
+		return "rock";
+	} else if(x <= 0.4) {
+		return "paper";
+	} else if(x <= 0.6) {
+		return "scissors";
+	} else if(x <= 0.8) {
+		return "turtle";
+	} else {
+		return "Spock";
+	}
 }
 
 Game.prototype.winner = function() {
@@ -25,49 +40,24 @@ Game.prototype.winner = function() {
 		return null;
 	}
 
-		if(solution[this.player1.pick].hasOwnProperty(this.player2.pick)) {
+		if(this.PAIRS[this.player1.pick][this.player2.pick]) {
 			this.win = this.player1
 			this.lose = this.player2
 			return this.player1;
 		}
-		else if(solution[this.player2.pick].hasOwnProperty(this.player1.pick)){
+		else if(this.PAIRS[this.player2.pick][this.player1.pick]){
 			this.win = this.player2
 			this.lose = this.player1
 			return this.player2;
 		}
 }
 
-
-
 Game.prototype.isSamePick = function() {
- alert("Draw!"); 
+ message = "Draw!"; 
  return this.player1.pick === this.player2.pick;
 }
 
 Game.prototype.message = function() {
+	if(this.isSamePick()) return 'Draw!';
 	return (this.win.pick + " " + this.PAIRS[this.win.pick][this.lose.pick] + " " + this.lose.pick);
 }
-
-// {
-// if ( player1 === player2) {
-// 		console.log("It's a draw!"); }
-// 	if (player1 === 'rock') {
-// 		if (player2 === 'scissors') {
-// 			return this.player1; }
-// 		else { return this.player2;
-// 				}
-// 			}
-// 	else if (player1 === 'paper') {
-// 		if (player2 === 'rock') {
-// 			return this.player1; }
-// 		else { this.player2;
-// 				}
-// 			}
-// 	else (player1 === 'scissors') {
-// 		if (player2 === 'paper') {
-// 			return this.player1; }
-// 		else { this.player2;
-// 					}
-// 				}
-// 			}
-		
